@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открытка "С днём рождения, папа!"</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, green, yellow);
+        }
+        h2{color: blue;}
+        .message{color:green;}
+        .card {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 300px;
+        }
+        .card:hover .message {
+            opacity: 1;
+        }
+        .message {
+            opacity: 0;
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>С днём рождения, папа!</h2>
+        <h2>▶️</h2>
+        <div class="message">
+            Пусть этот день принесет радость, удачу и множество приятных моментов!
+        </div>
+         
+        <audio id="birthdaySong">
+    <source src="Соколенко Даниил - С днем рождения, Папа.mp3" type="audio/mp3">
+    Ваш браузер не поддерживает аудио элемент.
+</audio>
+    </div>
+
+    <script>
+        document.querySelector('.card').addEventListener('click', function() {
+            let message = document.querySelector('.message');
+            message.style.opacity = message.style.opacity == 1 ? 0 : 1;
+        });
+        document.querySelector('.card').addEventListener('click', function() {
+    let audioElement = document.getElementById('birthdaySong');
+
+    if (audioElement.paused) {
+        audioElement.play();
+    } else {
+        audioElement.pause();
+    }
+});
+    </script>
+</body>
+</html>
